@@ -8,6 +8,7 @@ private:
   byte in1_left, in2_left, in1_right, in2_right;
   int pwm_left, pwm_right, stby;
   int value;
+  bool throw;
   throw_pwm(byte PWM_left, byte PWM_right);
 public:
   TB6612FNG(byte IN1_left, byte IN2_left, byte IN1_right, byte IN2_right, int PWM_left, int PWM_right , int STBY=-1):
