@@ -16,7 +16,7 @@ TB6612FNG::begin(){
 
 TB6612FNG::set_pwm(int value){
   if (this->value!=-1) this->value = value;
-  if (throw) throw_pwm(value, value);
+  if (throw_) throw_pwm(value, value);
 }
 
 TB6612FNG::throw_pwm(byte PWM_left, byte PWM_right){
@@ -29,7 +29,7 @@ TB6612FNG::throw_pwm(byte PWM_left, byte PWM_right){
 
 TB6612FNG::stop(){
   throw_pwm(0, 0);
-  throw = false;
+  throw_ = false;
   if (stby!=-1) digitalWrite(stby, LOW);
   digitalWrite(in1_right, LOW);
   digitalWrite(in2_right, LOW);
@@ -38,14 +38,14 @@ TB6612FNG::stop(){
 }
 TB6612FNG::brake(){
   throw_pwm(255, 255);
-  throw = false;
+  throw_ = false;
   digitalWrite(in1_right, HIGH);
   digitalWrite(in2_right, HIGH);
   digitalWrite(in1_left, HIGH);
   digitalWrite(in2_left, HIGH);
 }
 TB6612FNG::forward(){
-  throw = true;
+  throw_ = true;
   throw_pwm(value, value);
   digitalWrite(in1_right, HIGH);
   digitalWrite(in2_right, LOW);
@@ -53,7 +53,7 @@ TB6612FNG::forward(){
   digitalWrite(in2_left, LOW);
 }
 TB6612FNG::backward(){
-  throw = true;
+  throw_ = true;
   throw_pwm(value, value);
   digitalWrite(in1_right, LOW);
   digitalWrite(in2_right, HIGH);
@@ -61,7 +61,7 @@ TB6612FNG::backward(){
   digitalWrite(in2_left, HIGH);
 }
 TB6612FNG::right(){
-  throw = true;
+  throw_ = true;
   throw_pwm(value, 0);
   digitalWrite(in1_right, LOW);
   digitalWrite(in2_right, LOW);
@@ -69,7 +69,7 @@ TB6612FNG::right(){
   digitalWrite(in2_left, LOW);
 }
 TB6612FNG::left(){
-  throw = true;
+  throw_ = true;
   throw_pwm(0, value);
   digitalWrite(in1_right, HIGH);
   digitalWrite(in2_right, LOW);
