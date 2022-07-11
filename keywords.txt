@@ -2,13 +2,13 @@ TB6612FNG		   	KEYWORD1
 begin			   	KEYWORD2
 set_pwm			   	KEYWORD2
 throw_pwm		'	KEYWORD2
-parar			   	KEYWORD2
-frear				KEYWORD2
-frente			    	KEYWORD2
-tras			    	KEYWORD2
-direita			   	KEYWORD2
-esquerda			KEYWORD2
-frente_direita      		KEYWORD2
-frente_esquerda     		KEYWORD2
-tras_direita       		KEYWORD2
-tras_esquerda      		KEYWORD2
+stop			   	KEYWORD2
+brake				KEYWORD2
+forward			    	KEYWORD2
+backward			    	KEYWORD2
+right			   	KEYWORD2
+left			KEYWORD2
+forward_right      		KEYWORD2
+forward_left     		KEYWORD2
+backward_right       		KEYWORD2
+backward_left      		KEYWORD2
