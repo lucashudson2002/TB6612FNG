@@ -23,10 +23,10 @@ public:
   backward();
   right();
   left();
-  forward_right();
-  forward_left();
-  backward_right();
-  backward_left();  
+  forward_right(float proportion = 0.5);
+  forward_left(float proportion = 0.5);
+  backward_right(float proportion = 0.5);
+  backward_left(float proportion = 0.5);  
 };
 
 #endif

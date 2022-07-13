@@ -62,33 +62,37 @@ TB6612FNG::backward(){
 }
 TB6612FNG::right(){
   throw_ = true;
-  throw_pwm(value, 0);
+  throw_pwm(value, value);
   digitalWrite(in1_right, LOW);
-  digitalWrite(in2_right, LOW);
+  digitalWrite(in2_right, HIGH);
   digitalWrite(in1_left, HIGH);
   digitalWrite(in2_left, LOW);
 }
 TB6612FNG::left(){
   throw_ = true;
-  throw_pwm(0, value);
+  throw_pwm(value, value);
   digitalWrite(in1_right, HIGH);
   digitalWrite(in2_right, LOW);
   digitalWrite(in1_left, LOW);
-  digitalWrite(in2_left, LOW);
+  digitalWrite(in2_left, HIGH);
 }
-TB6612FNG::forward_right(){
+TB6612FNG::forward_right(float proportion = 0.5){
+  proportion = constrain(proportion, 0, 1);
   forward();
-  throw_pwm(value, 0.5*value);
+  throw_pwm(value, proportion*value);
 }
-TB6612FNG::forward_left(){
+TB6612FNG::forward_left(float proportion = 0.5){
+  proportion = constrain(proportion, 0, 1);
   forward();
-  throw_pwm(0.5*value, value);
+  throw_pwm(proportion*value, value);
 }
-TB6612FNG::backward_right(){
+TB6612FNG::backward_right(float proportion = 0.5){
+  proportion = constrain(proportion, 0, 1);
   backward();
-  throw_pwm(value, 0.5*value);
+  throw_pwm(value, proportion*value);
 }
-TB6612FNG::backward_left(){
+TB6612FNG::backward_left(float proportion = 0.5){
+  proportion = constrain(proportion, 0, 1);
   backward();
-  throw_pwm(0.5*value, value);
+  throw_pwm(proportion*value, value);
 } 
