@@ -8,7 +8,7 @@
 #define IN1B 7
 #define IN2B 8
 
-//Create the object for TB6612FNG with the define above
+//create the object for TB6612FNG with the define above
 TB6612FNG robot (IN1A, IN2A, IN1B, IN2B, PWMA, PWMB, STBY);
 //TB6612FNG robot (IN1A, IN2A, IN1B, IN2B, PWMA, PWMB);
 //TB6612FNG robot (IN1A, IN2A, IN1B, IN2B, STBY);
